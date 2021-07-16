@@ -7,10 +7,10 @@ const PostDetail = () => {
     const {id}=useParams();
     useEffect(()=>{
         fetch(`https://jsonplaceholder.typicode.com/posts/${id}`).then(res=>res.json()).then(data=>setPost(data));
-    },[])
+    },[id])
     useEffect(()=>{
         fetch(`https://jsonplaceholder.typicode.com/comments?postId=${id}`).then(res=>res.json()).then(data=>setComments(data));
-    },[])
+    },[id])
 
     const {title,body}=post;
     return (
